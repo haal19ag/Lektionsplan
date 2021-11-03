@@ -4,6 +4,7 @@ import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import firebase from 'firebase';
 import {useEffect, useState} from "react";
 
+
 const LektionsPlan = ({navigation}) => {
 
     const [koeretimer,setKoeretimer] = useState()
@@ -41,6 +42,7 @@ const LektionsPlan = ({navigation}) => {
 
     return (
         <FlatList
+            style={{backgroundColor:'#404040'}}
             data={koeretimeArray}
             //asdasd
             // til at finde ID bruger man  køretimeKeys på den specifikke køretime og returnerer netop dette som key, hvorved dette gives med som ID til KøretimeListItem
@@ -48,7 +50,7 @@ const LektionsPlan = ({navigation}) => {
             renderItem={({ item, index }) => { console.log(item)
                 return(
                     <TouchableOpacity style={styles.container} onPress={() => handleSelectKoeretime(koeretimeKeys[index])}>
-                        <Text>
+                        <Text style={styles.text}>
                             Køretime {index+1}
                         </Text>
                     </TouchableOpacity>
@@ -64,12 +66,18 @@ export default LektionsPlan;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        borderWidth: 1,
-        borderRadius:10,
+        fontStyle: "bold",
+        borderWidth: 0,
+        borderRadius:20,
+        backgroundColor: '#262626',
+        textAlign: "center",
         margin: 5,
         padding: 5,
         height: 50,
         justifyContent:'center'
+    },
+    text:{
+        color:'white'
     },
     label: { fontWeight: 'bold' },
 });
