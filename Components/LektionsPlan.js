@@ -42,6 +42,7 @@ const LektionsPlan = ({navigation}) => {
     return (
         <FlatList
             data={koeretimeArray}
+            //asdasd
             // til at finde ID bruger man  køretimeKeys på den specifikke køretime og returnerer netop dette som key, hvorved dette gives med som ID til KøretimeListItem
             keyExtractor={(item, index) => koeretimeKeys[index]}
             renderItem={({ item, index }) => { console.log(item)
